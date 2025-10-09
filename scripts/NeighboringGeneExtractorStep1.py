@@ -1,16 +1,12 @@
-import csv
 import os
-import pandas as pd
-import numpy as np
-from tqdm import tqdm
-import copy
-from tqdm import tqdm
+import re
+import csv
 import json
 import pickle
-import re
-import pandas as pd
 from collections import defaultdict
-
+from tqdm import tqdm
+import numpy as np
+import pandas as pd
 
 def get_files_with_prefix_suffix(directory, prefix='', suffix=''):
     matching_files = []
@@ -179,7 +175,7 @@ if __name__ == "__main__":
         "attributes"
     ]
 
-    gff_database_dir = '/path/to/database/gff'
+    gff_database_dir = '/data/genefamily/database/gff'
     species_gff_results_dir = '../data/species_gff_blocks'
 
     # Get GFF files list

@@ -1,9 +1,9 @@
-import pandas as pd
 import os
-import pandas as pd
-import numpy as np
-import os, json, csv
+import json
+import csv
 import subprocess
+import numpy as np
+import pandas as pd
 from tqdm import tqdm
 
 def save_to_json(data, file_path):

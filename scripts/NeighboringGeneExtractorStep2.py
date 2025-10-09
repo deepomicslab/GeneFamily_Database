@@ -230,7 +230,7 @@ def process_gene_family(args):
     try:
         # Set save path
         save_dir = os.path.join(results_base_dir, 
-                               gene_family_name, "Module3", "gene_neighbor")
+                               gene_family_name, "gene_neighbor")
         # Directory for downloaded files package
         result_dir = os.path.join(download_base_dir, 
                                  'download', gene_family_name, 'gene_neighborhood_pre')
@@ -239,12 +239,6 @@ def process_gene_family(args):
 
         if not os.path.exists(gene_family_data_dir):
             return f"Skipped {gene_family_name}: Data directory not found at {gene_family_data_dir}"
-        
-        # Check if results already exist
-        file_path = os.path.join(results_base_dir, gene_family_name, "Module3", f"{gene_family_name}_gene_neighbor.tar.gz")
-        if os.path.exists(file_path) and os.path.getsize(file_path) > 390:
-            print('???', os.path.join(results_base_dir, gene_family_name, "Module3"))
-            return 'has results'
         
         # Create directories
         os.makedirs(save_dir, exist_ok=True)
@@ -399,7 +393,7 @@ if __name__ == '__main__':
 
     # Input configuration
     gene_family_list_path = "../data/gene_family_list.csv"
-    module_name = 'module3'
+    module_name = 'module'
 
     # Directory paths configuration
     gene_family_results_dir = "../results/neighborhood_results"
