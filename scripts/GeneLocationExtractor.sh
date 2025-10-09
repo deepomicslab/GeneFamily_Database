@@ -1,12 +1,12 @@
 #!/bin/bash
 # init variables
-genome=/data/zyz/genefamily/database/genome
-cds=/data/zyz/genefamily/database/cds
-pep=/data/zyz/genefamily/database/pep
-script=/data/zyz/genefamily/database/script
-gff=/data/zyz/genefamily/database/gff
-blastdb_pep=/data/zyz/genefamily/database/blastdb_pep
-chromosome=/data/zyz/genefamily/database/gene_density
+genome=/data/genefamily/database/genome
+cds=/data/genefamily/database/cds
+pep=/data/genefamily/database/pep
+script=/data/genefamily/database/script
+gff=/data/genefamily/database/gff
+blastdb_pep=/data/genefamily/database/blastdb_pep
+chromosome=/data/genefamily/database/gene_density
 
 while getopts ":q:s:e:p:i:a:n:t:m:" o; do
     case "${o}" in
@@ -43,7 +43,7 @@ done
 
 echo  "queryID = ${queryID}"
 
-workspace=/mnt/genefamily/genefamily/module3/$projectID
+workspace=/mnt/genefamily/genefamily/$projectID
 
 if [ ! -d "${workspace}" ]; then
     echo "no exsist  $workspace}"
@@ -75,8 +75,8 @@ do
   -in1 $workspace/gene_structure/${id}_transIDlist.txt \
   -in2 $gff/${id}.gff.fa \
   -out $workspace/${id}_mrna_location.txt;
-  cp $chromosome/${id}.txt $workspace/${id}_chrlength.txt; #各个物种染色体长度信息
-  cp $chromosome/${id}gene_density.txt $workspace/${id}.gene_density.txt; #各个物种染色体密度
+  cp $chromosome/${id}.txt $workspace/${id}_chrlength.txt;
+  cp $chromosome/${id}gene_density.txt $workspace/${id}.gene_density.txt;
 done
 
 rm -rf $tmp
